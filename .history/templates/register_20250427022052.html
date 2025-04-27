@@ -16,15 +16,6 @@
       {% endif %}
     {% endwith %}
 
-    
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      {% for category, message in messages %}
-        <div class="flash-{{ category }}">{{ message }}</div>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
-  
     <form action="/register" method="POST" autocomplete="off">
       <!-- Champs fantômes pour tromper le navigateur -->
       <input type="text" name="fakeusernameremembered" style="display:none">
@@ -49,6 +40,13 @@
     <br>
     <a href="/">Retour à l'accueil</a>
 </body>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flash-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
 
 <nav class="navbar">
   <div class="navbar-container">

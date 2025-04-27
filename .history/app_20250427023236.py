@@ -133,7 +133,7 @@ def login():
 @login_required
 def dashboard_personnel():
     if current_user.role != "Personnel":
-        flash("Accès refusé.",'error')
+        flash("Accès refusé.")
         return redirect(url_for('login'))
 
     if request.method == 'POST':
@@ -142,7 +142,7 @@ def dashboard_personnel():
         location = request.form['location']
 
         food_chain.add_block(product_id, event, location)
-        flash('Produit ajouté à la blockchain avec succès.', 'success')
+        flash('Produit ajouté à la blockchain avec succès.')
 
     # Envoyer toute la blockchain sauf le bloc Genesis (index 0)
     products = food_chain.chain[1:]  # On enlève le tout premier bloc ("Début de la traçabilité")
@@ -170,7 +170,7 @@ def dashboard_client():
 @login_required
 def logout():
     logout_user()
-    flash("Vous êtes déconnecté.", 'success')
+    flash("Vous êtes déconnecté.")
     return redirect(url_for('login'))
 
 

@@ -170,7 +170,7 @@ def dashboard_client():
 @login_required
 def logout():
     logout_user()
-    flash("Vous êtes déconnecté.", 'success')
+    flash("Vous êtes déconnecté.")
     return redirect(url_for('login'))
 
 

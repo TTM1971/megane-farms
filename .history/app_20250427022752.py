@@ -67,7 +67,7 @@ def register():
 
         # Vérifier la longueur du mot de passe
         if len(password) < 8:
-            flash('Le mot de passe doit contenir au moins 8 caractères.', 'error')
+            flash('Le mot de passe doit contenir au moins 8 caractères.')
             return redirect(url_for('register'))
 
         # Vérifier la présence d'au moins une majuscule
@@ -77,7 +77,7 @@ def register():
 
         # Vérifier la présence d'au moins un chiffre
         if not re.search(r'\d', password):
-            flash('Le mot de passe doit contenir au moins un chiffre.', 'error')
+            flash('Le mot de passe doit contenir au moins un chiffre.')
             return redirect(url_for('register'))
 
         # Hachage du mot de passe
@@ -90,7 +90,7 @@ def register():
             cursor.execute("INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
                            (username, hashed_password, role))
             connection.commit()
-            flash('Compte créé avec succès, veuillez vous connecter.', 'success')
+            flash('Compte créé avec succès, veuillez vous connecter.')
             return redirect(url_for('login'))
         except sqlite3.IntegrityError:
             flash('Ce nom d’utilisateur est déjà utilisé.')
@@ -116,13 +116,13 @@ def login():
         if user_data and check_password_hash(user_data[2], password):
             user = User(*user_data)
             login_user(user)
-            flash('Connexion réussie.','success')
+            flash('Connexion réussie.')
             if user.role == "Personnel":
                 return redirect(url_for('dashboard_personnel'))
             else:
                 return redirect(url_for('dashboard_client'))
         else:
-            flash('Identifiant ou mot de passe incorrect.', 'error')
+            flash('Identifiant ou mot de passe incorrect.')
             return redirect(url_for('login'))
 
     return render_template('login.html')
@@ -133,7 +133,7 @@ def login():
 @login_required
 def dashboard_personnel():
     if current_user.role != "Personnel":
-        flash("Accès refusé.",'error')
+        flash("Accès refusé.")
         return redirect(url_for('login'))
 
     if request.method == 'POST':
@@ -142,7 +142,7 @@ def dashboard_personnel():
         location = request.form['location']
 
         food_chain.add_block(product_id, event, location)
-        flash('Produit ajouté à la blockchain avec succès.', 'success')
+        flash('Produit ajouté à la blockchain avec succès.')
 
     # Envoyer toute la blockchain sauf le bloc Genesis (index 0)
     products = food_chain.chain[1:]  # On enlève le tout premier bloc ("Début de la traçabilité")
@@ -170,7 +170,7 @@ def dashboard_client():
 @login_required
 def logout():
     logout_user()
-    flash("Vous êtes déconnecté.", 'success')
+    flash("Vous êtes déconnecté.")
     return redirect(url_for('login'))
 
 
