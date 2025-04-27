@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <meta charset="UTF-8">
+    <title>Historique du Produit</title>
+</head>
+<body>
+    <h1>Historique pour le produit : {{ product_id }}</h1>
+
+    {% if historique %}
+        <ul>
+            {% for block in historique %}
+                <li>
+                    <strong>Événement :</strong> {{ block.event }}<br>
+                    <strong>Lieu :</strong> {{ block.location }}<br>
+                    <strong>Date :</strong> {{ block.timestamp }}
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun historique trouvé pour ce produit.</p>
+    {% endif %}
+
+    <br>
+    <a href="/client">Rechercher un autre produit</a><br>
+    <a href="/">Retour à l'accueil</a>
+</body>
+</html>

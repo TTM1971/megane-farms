@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <meta charset="UTF-8">
+    <title>Personnel - Ajouter un événement</title>
+</head>
+<body>
+    <h1>Ajout d'un événement pour un produit</h1>
+
+    <form action="/ajouter" method="POST">
+        <label for="product_id">ID du Produit :</label><br>
+        <input type="text" id="product_id" name="product_id" required><br><br>
+
+        <label for="event">Événement :</label><br>
+        <input type="text" id="event" name="event" required><br><br>
+
+        <label for="location">Lieu :</label><br>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <input type="submit" value="Ajouter l'événement">
+    </form>
+
+    <br>
+    <a href="/">Retour à l'accueil</a>
+</body>
+</html>

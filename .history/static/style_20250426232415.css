@@ -1,0 +1,73 @@
+/* Style général */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #a8e063, #56ab2f);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Centrer tout */
+h1, p {
+    text-align: center;
+    color: #ffffff;
+}
+
+form {
+    background: #ffffff;
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Boutons */
+input[type="submit"],
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    background: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+/* Liens */
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    text-decoration: underline;
+}

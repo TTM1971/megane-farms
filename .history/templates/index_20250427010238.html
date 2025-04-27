@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <meta charset="UTF-8">
+    <title>Accueil - Traçabilité Alimentaire</title>
+</head>
+<body>
+    <h1>Bienvenue sur la plateforme de traçabilité alimentaire</h1>
+    <p>Veuillez choisir votre rôle :</p>
+    <a href="/personnel"><button>Personnel</button></a>
+    <a href="/client"><button>Client</button></a>
+</body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="/">Accueil</a>
+        <a href="/login">Connexion</a>
+        <a href="/register">Créer un compte</a>
+        <a href="/logout">Déconnexion</a>
+    </div>
+</nav>
+
+</html>

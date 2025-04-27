@@ -1,0 +1,76 @@
+/* Style général */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #FFFACD, #FFD700); /* dégradé jaune doux */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Titres */
+h1, h2, p {
+    text-align: center;
+    color: #228B22; /* vert nature */
+}
+
+/* Formulaires */
+form {
+    background: #ffffff;
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Boutons */
+input[type="submit"],
+button {
+    background-color: #FFD700; /* jaune doux */
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #FFC300; /* jaune plus intense au survol */
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    background: #228B22; /* vert nature */
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+/* Liens */
+a {
+    text-decoration: none;
+    color: #228B22;
+}
+
+a:hover {
+    text-decoration: underline;
+}

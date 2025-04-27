@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Personnel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bienvenue {{ username }} (Personnel)</h1>
+    <p>Vous pouvez ici ajouter des produits et suivre leur traçabilité.</p>
+
+    <a href="/logout">Se déconnecter</a>
+</body>
+</html>

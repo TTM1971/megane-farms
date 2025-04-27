@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Client</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bienvenue {{ username }} (Client)</h1>
+
+    <p>Vous pouvez ici vérifier la traçabilité de vos produits alimentaires.</p>
+
+    <!-- Formulaire de vérification de produit -->
+    <form action="/dashboard_client" method="POST">
+        <label for="product_id">ID Produit :</label><br>
+        <input type="text" id="product_id" name="product_id" required><br><br>
+
+        <input type="submit" value="Vérifier Produit">
+    </form>
+
+    <hr>
+
+    <!-- Résultats de la recherche -->
+    {% if history %}
+        <h2>Historique du produit</h2>
+        <ul>
+            {% for block in history %}
+                <li>
+                    <strong>Événement :</strong> {{ block.event }}<br>
+                    <strong>Lieu :</strong> {{ block.location }}<br>
+                    <strong>Date :</strong> {{ block.get_formatted_date() }}
+
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% elif request.method == 'POST' %}
+        <p>Aucun événement trouvé pour cet ID produit.</p>
+    {% endif %}
+
+    <br>
+    <a href="/logout">Se déconnecter</a>
+    
+</body>
+</html>

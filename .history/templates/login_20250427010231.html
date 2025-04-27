@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Connexion à la plateforme</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form action="/login" method="POST" autocomplete="off">
+        <!-- Champ caché anti-autofill -->
+        <input type="text" name="fakeusernameremembered" style="display:none">
+        <input type="password" name="fakepasswordremembered" style="display:none">
+
+        <label for="username">Nom d'utilisateur :</label><br>
+        <input type="text" id="username" name="username" required autocomplete="new-username"><br><br>
+
+        <label for="password">Mot de passe :</label><br>
+        <input type="password" id="password" name="password" required autocomplete="new-password"><br><br>
+
+        <input type="submit" value="Se connecter">
+    </form>
+
+    <br>
+    <a href="/register">Créer un compte</a><br>
+    <a href="/">Retour à l'accueil</a>
+</body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="/">Accueil</a>
+        <a href="/login">Connexion</a>
+        <a href="/register">Créer un compte</a>
+        <a href="/logout">Déconnexion</a>
+    </div>
+</nav>
+
+</html>

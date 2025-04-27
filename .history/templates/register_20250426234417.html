@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Créer un compte</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form action="/register" method="POST" autocomplete="off">
+      <!-- Champs fantômes pour tromper le navigateur -->
+      <input type="text" name="fakeusernameremembered" style="display:none">
+      <input type="password" name="fakepasswordremembered" style="display:none">
+  
+      <label for="username">Nom d'utilisateur :</label><br>
+      <input type="text" id="username" name="username" required autocomplete="off"><br><br>
+  
+      <label for="password">Mot de passe :</label><br>
+      <input type="password" id="password" name="password" required autocomplete="off"><br><br>
+  
+      <label for="role">Rôle :</label><br>
+      <select id="role" name="role" required>
+          <option value="Personnel">Personnel</option>
+          <option value="Client">Client</option>
+      </select><br><br>
+  
+      <input type="submit" value="Créer un compte">
+  </form>
+  
+
+    <br>
+    <a href="/">Retour à l'accueil</a>
+</body>
+</html>

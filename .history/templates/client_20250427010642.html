@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <meta charset="UTF-8">
+    <title>Client - Vérifier un produit</title>
+</head>
+<body>
+    <h1>Vérification d'un produit</h1>
+
+    <form action="/chercher" method="POST">
+        <label for="product_id">ID du Produit (Code-barres ou identifiant) :</label><br>
+        <input type="text" id="product_id" name="product_id" required><br><br>
+
+        <input type="submit" value="Rechercher">
+    </form>
+
+    <br>
+    <a href="/">Retour à l'accueil</a>
+</body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-brand">
+            🌿 <a href="/" class="brand-name">MeganeFarms</a>
+        </div>
+        
+        {% if current_user.is_authenticated %}
+            {% if current_user.role == 'Personnel' %}
+                <a href="/dashboard_personnel">Tableau de bord (Personnel)</a>
+            {% elif current_user.role == 'Client' %}
+                <a href="/dashboard_client">Tableau de bord (Client)</a>
+            {% endif %}
+            <a href="/logout">Déconnexion</a>
+        {% else %}
+            <a href="/login">Connexion</a>
+            <a href="/register">Créer un compte</a>
+        {% endif %}
+    </div>
+</nav>
+
+
+</html>

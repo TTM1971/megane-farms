@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Client</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bienvenue {{ username }} (Client)</h1>
+
+    <p>Vous pouvez ici vérifier la traçabilité de vos produits alimentaires.</p>
+
+    <!-- Formulaire de vérification de produit -->
+    <form action="/dashboard_client" method="POST">
+        <label for="product_id">ID Produit :</label><br>
+        <input type="text" id="product_id" name="product_id" required><br><br>
+
+        <input type="submit" value="Vérifier Produit">
+    </form>
+
+    <hr>
+
+    <!-- Résultats de la recherche -->
+    {% if history %}
+    <h2>Historique du produit</h2>
+    <div class="timeline">
+        {% for block in history %}
+            <div class="timeline-event {% if loop.index % 2 == 0 %}left{% else %}right{% endif %}">
+                <div class="timeline-event-content">
+                    <p><strong>Événement :</strong> {{ block.event }}</p>
+                    <p><strong>Lieu :</strong> {{ block.location }}</p>
+                    <p><strong>Date :</strong> {{ block.get_formatted_date() }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% elif request.method == 'POST' %}
+    <p>Aucun événement trouvé pour cet ID produit.</p>
+{% endif %}
+
+    <br>
+    <a href="/logout">Se déconnecter</a>
+    <h1 class="fade-in">Bienvenue sur MeganeFarms</h1>
+<p class="fade-in">Suivez vos produits de la ferme jusqu'à votre table.</p>
+
+</body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-brand">
+            🌿 <a href="/" class="brand-name">MeganeFarms</a>
+        </div>
+        
+        {% if current_user.is_authenticated %}
+            {% if current_user.role == 'Personnel' %}
+                <a href="/dashboard_personnel">Tableau de bord (Personnel)</a>
+            {% elif current_user.role == 'Client' %}
+                <a href="/dashboard_client">Tableau de bord (Client)</a>
+            {% endif %}
+            <a href="/logout">Déconnexion</a>
+        {% else %}
+            <a href="/login">Connexion</a>
+            <a href="/register">Créer un compte</a>
+        {% endif %}
+    </div>
+</nav>
+
+
+</html>

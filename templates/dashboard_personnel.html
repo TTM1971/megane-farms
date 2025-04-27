@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Personnel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bienvenue {{ username }} (Personnel)</h1>
+    <p>Ajouter un nouveau produit :</p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color: green;">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form action="/dashboard_personnel" method="POST">
+        <label for="product_id">ID Produit :</label><br>
+        <input type="text" id="product_id" name="product_id" required><br><br>
+
+        <label for="event">Événement :</label><br>
+        <input type="text" id="event" name="event" required><br><br>
+
+        <label for="location">Lieu :</label><br>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <input type="submit" value="Ajouter">
+    </form>
+
+    <hr>
+
+    <h2>Liste des produits enregistrés</h2>
+    {% if products %}
+        <ul>
+            {% for block in products %}
+                <li>
+                    <strong>ID Produit :</strong> {{ block.product_id }}<br>
+                    <strong>Événement :</strong> {{ block.event }}<br>
+                    <strong>Lieu :</strong> {{ block.location }}<br>
+                    <strong>Ajouté le :</strong> {{ block.timestamp }}
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun produit enregistré pour l’instant.</p>
+    {% endif %}
+
+    <br>
+    <a href="/logout">Se déconnecter</a>
+    <h1 class="fade-in">Bienvenue sur MeganeFarms</h1>
+<p class="fade-in">Suivez vos produits de la ferme jusqu'à votre table.</p>
+
+</body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-brand">
+            🌿 <a href="/" class="brand-name">MeganeFarms</a>
+        </div>
+        
+        {% if current_user.is_authenticated %}
+            {% if current_user.role == 'Personnel' %}
+                <a href="/dashboard_personnel">Tableau de bord (Personnel)</a>
+            {% elif current_user.role == 'Client' %}
+                <a href="/dashboard_client">Tableau de bord (Client)</a>
+            {% endif %}
+            <a href="/logout">Déconnexion</a>
+        {% else %}
+            <a href="/login">Connexion</a>
+            <a href="/register">Créer un compte</a>
+        {% endif %}
+    </div>
+</nav>
+
+
+</html>

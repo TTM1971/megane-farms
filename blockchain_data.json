@@ -1,0 +1,38 @@
+[
+    {
+        "index": 0,
+        "timestamp": 1745688203.6056602,
+        "product_id": "0",
+        "event": "D\u00e9but de la tra\u00e7abilit\u00e9",
+        "location": "Origine",
+        "previous_hash": "0",
+        "hash": "6d1b47e2801f67e56fe7556b3627601eb9d111e0b5f0f5629c99d8c7a9abc122"
+    },
+    {
+        "index": 1,
+        "timestamp": 1745723338.360925,
+        "product_id": "MANGUE1020",
+        "event": "recolte",
+        "location": "ferme tropicale",
+        "previous_hash": "6d1b47e2801f67e56fe7556b3627601eb9d111e0b5f0f5629c99d8c7a9abc122",
+        "hash": "316a8a35667de9a6ac64528fd6853a65b783c7ef0dfb80a0f0df2b15d60fd386"
+    },
+    {
+        "index": 2,
+        "timestamp": 1745724468.887633,
+        "product_id": "MANGUE1020",
+        "event": "transformation",
+        "location": "usine du Nord",
+        "previous_hash": "316a8a35667de9a6ac64528fd6853a65b783c7ef0dfb80a0f0df2b15d60fd386",
+        "hash": "ee967f10da62093e403cb924ab9786ad74276dacc5f5e725c577fad764c8b2af"
+    },
+    {
+        "index": 3,
+        "timestamp": 1745726939.611038,
+        "product_id": "MANGUE1020",
+        "event": "emballage",
+        "location": "usine du Nord zone Z ",
+        "previous_hash": "ee967f10da62093e403cb924ab9786ad74276dacc5f5e725c577fad764c8b2af",
+        "hash": "72fd547f836a1071c2e1bd052b796bdbc448899c4d23839c86ab134acdc84639"
+    }
+]

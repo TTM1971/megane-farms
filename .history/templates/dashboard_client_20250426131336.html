@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Client</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bienvenue {{ username }} (Client)</h1>
+    <p>Vous pouvez ici vérifier la traçabilité de vos produits alimentaires.</p>
+
+    <a href="/logout">Se déconnecter</a>
+</body>
+</html>
