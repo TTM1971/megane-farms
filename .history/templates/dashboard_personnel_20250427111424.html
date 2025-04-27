@@ -80,21 +80,3 @@
 
 
 </html>
-
-
-<script>
-    function searchProducts() {
-        let input = document.getElementById('searchInput').value.toLowerCase();
-        let cards = document.getElementsByClassName('product-card');
-        
-        for (let i = 0; i < cards.length; i++) {
-            let card = cards[i];
-            if (card.innerText.toLowerCase().includes(input)) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        }
-    }
-    </script>
-    

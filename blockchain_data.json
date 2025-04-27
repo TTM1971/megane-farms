@@ -34,5 +34,14 @@
         "location": "usine du Nord zone Z ",
         "previous_hash": "ee967f10da62093e403cb924ab9786ad74276dacc5f5e725c577fad764c8b2af",
         "hash": "72fd547f836a1071c2e1bd052b796bdbc448899c4d23839c86ab134acdc84639"
+    },
+    {
+        "index": 4,
+        "timestamp": 1745765712.621973,
+        "product_id": "pomme 2022",
+        "event": "recolte",
+        "location": "ferme equatoriale",
+        "previous_hash": "72fd547f836a1071c2e1bd052b796bdbc448899c4d23839c86ab134acdc84639",
+        "hash": "fe28619183ee5527b162491c3c3f8b327de1aa44bc0649cecf02f85b2173f4e9"
     }
 ]

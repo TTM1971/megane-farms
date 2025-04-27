@@ -31,7 +31,6 @@
     </form>
 
     <hr>
-    <input type="text" id="searchInput" placeholder="Rechercher un produit..." onkeyup="searchProducts()">
 
     <h2>Liste des produits enregistrés</h2>
     {% if products %}
@@ -80,21 +79,3 @@
 
 
 </html>
-
-
-<script>
-    function searchProducts() {
-        let input = document.getElementById('searchInput').value.toLowerCase();
-        let cards = document.getElementsByClassName('product-card');
-        
-        for (let i = 0; i < cards.length; i++) {
-            let card = cards[i];
-            if (card.innerText.toLowerCase().includes(input)) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        }
-    }
-    </script>
-    

@@ -31,7 +31,6 @@
     </form>
 
     <hr>
-    <input type="text" id="searchInput" placeholder="Rechercher un produit..." onkeyup="searchProducts()">
 
     <h2>Liste des produits enregistrés</h2>
     {% if products %}
@@ -41,13 +40,23 @@
                 <p><strong>ID Produit :</strong> {{ block.product_id }}</p>
                 <p><strong>Événement :</strong> {{ block.event }}</p>
                 <p><strong>Lieu :</strong> {{ block.location }}</p>
-                
-                <strong>Date :</strong> {{ block.get_formatted_date() }}
+                <p><strong>Date :</strong> {{ block.timestamp | datetimeformat }}</p>
             </div>
         {% endfor %}
     </div>
     
-    
+        <ul>
+            {% for block in products %}
+                <li>
+                    <strong>ID Produit :</strong> {{ block.product_id }}<br>
+                    <strong>Événement :</strong> {{ block.event }}<br>
+                    <strong>Lieu :</strong> {{ block.location }}<br>
+                    <strong>Date :</strong> {{ block.get_formatted_date() }}
+                    
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
     {% else %}
         <p>Aucun produit enregistré pour l’instant.</p>
     {% endif %}
@@ -80,21 +89,3 @@
 
 
 </html>
-
-
-<script>
-    function searchProducts() {
-        let input = document.getElementById('searchInput').value.toLowerCase();
-        let cards = document.getElementsByClassName('product-card');
-        
-        for (let i = 0; i < cards.length; i++) {
-            let card = cards[i];
-            if (card.innerText.toLowerCase().includes(input)) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        }
-    }
-    </script>
-    
