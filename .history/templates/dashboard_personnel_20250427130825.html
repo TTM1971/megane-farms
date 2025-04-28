@@ -16,35 +16,7 @@
         {% endfor %}
       {% endif %}
     {% endwith %}
-    <form action="/dashboard_personnel" method="POST">
-        <label for="name">Nom de la personne :</label><br>
-        <input type="text" id="name" name="name" required><br><br>
-    
-        <label for="title">Titre de l'action :</label><br>
-        <input type="text" id="title" name="title" required><br><br>
-    
-        <label for="node">Type de Nœud :</label><br>
-        <select id="node" name="node" required>
-            <option value="Ferme">Ferme</option>
-            <option value="Usine">Usine</option>
-            <option value="Entrepôt">Entrepôt</option>
-            <option value="Centre d'emballage">Centre d'emballage</option>
-            <option value="Chauffeur">Chauffeur</option>
-            <option value="Centre commercial">Centre commercial</option>
-        </select><br><br>
-    
-        <label for="product_id">ID Produit :</label><br>
-        <input type="text" id="product_id" name="product_id" required><br><br>
-    
-        <label for="event">Événement :</label><br>
-        <input type="text" id="event" name="event" required><br><br>
-    
-        <label for="location">Lieu :</label><br>
-        <input type="text" id="location" name="location" required><br><br>
-    
-        <input type="submit" value="Ajouter">
-    </form>
-    
+  
     <hr>
     <input type="text" id="searchInput" placeholder="Rechercher un produit..." onkeyup="searchProducts()">
 

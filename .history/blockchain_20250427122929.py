@@ -14,17 +14,14 @@ class Blockchain:
     def get_latest_block(self):
         return self.chain[-1]
 
-    
-    def add_block(self, name, title, node, product_id, event, location):
+   
+    def add_block(self, product_id, event, location, node):
         latest_block = self.get_latest_block()
         new_block = Block(
             index=latest_block.index + 1,
-            name=name,
-            title=title,
-            node=node,
             product_id=product_id,
             event=event,
-            location=location,
+            location=f"{location} ({node})",  # On ajoute le nœud au lieu
             previous_hash=latest_block.hash
         )
         new_block.mine_block(self.difficulty)

@@ -14,21 +14,21 @@ class Blockchain:
     def get_latest_block(self):
         return self.chain[-1]
 
-    
-    def add_block(self, name, title, node, product_id, event, location):
-        latest_block = self.get_latest_block()
-        new_block = Block(
-            index=latest_block.index + 1,
-            name=name,
-            title=title,
-            node=node,
-            product_id=product_id,
-            event=event,
-            location=location,
-            previous_hash=latest_block.hash
-        )
-        new_block.mine_block(self.difficulty)
-        self.chain.append(new_block)
+   
+  def add_block(self, name, title, node, product_id, event, location):
+    latest_block = self.get_latest_block()
+    new_block = Block(
+        index=latest_block.index + 1,
+        name=name,
+        title=title,
+        node=node,
+        product_id=product_id,
+        event=event,
+        location=location,
+        previous_hash=latest_block.hash
+    )
+    new_block.mine_block(self.difficulty)
+    self.chain.append(new_block)
 
     def is_chain_valid(self):
         for i in range(1, len(self.chain)):

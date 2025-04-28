@@ -137,16 +137,16 @@ def dashboard_personnel():
         return redirect(url_for('login'))
 
     if request.method == 'POST':
-        name = request.form['name']
-        title = request.form['title']
-        node = request.form['node']
-        product_id = request.form['product_id']
-        event = request.form['event']
-        location = request.form['location']
+    name = request.form['name']
+    title = request.form['title']
+    node = request.form['node']
+    product_id = request.form['product_id']
+    event = request.form['event']
+    location = request.form['location']
 
-        food_chain.add_block(name, title, node, product_id, event, location)
-        flash('Produit ajouté à la blockchain avec succès.')
-        
+    food_chain.add_block(name, title, node, product_id, event, location)
+    flash('Produit ajouté à la blockchain avec succès.')
+    
     products = food_chain.chain[1:]  # Liste des produits sauf le Genesis Block
     return render_template('dashboard_personnel.html', username=current_user.username, products=products)
 

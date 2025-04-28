@@ -133,23 +133,22 @@ def login():
 @login_required
 def dashboard_personnel():
     if current_user.role != "Personnel":
-        flash("Accès refusé.", 'error')
+        flash("Accès refusé.",'error')
         return redirect(url_for('login'))
 
+   
     if request.method == 'POST':
-        name = request.form['name']
-        title = request.form['title']
-        node = request.form['node']
-        product_id = request.form['product_id']
-        event = request.form['event']
-        location = request.form['location']
+    product_id = request.form['product_id']
+    event = request.form['event']
+    location = request.form['location']
+    node = request.form['node']
 
-        food_chain.add_block(name, title, node, product_id, event, location)
-        flash('Produit ajouté à la blockchain avec succès.')
-        
-    products = food_chain.chain[1:]  # Liste des produits sauf le Genesis Block
+    food_chain.add_block(product_id, event, location, node)
+    flash('Produit ajouté à la blockchain avec succès.')
+
+    # Envoyer toute la blockchain sauf le bloc Genesis (index 0)
+    products = food_chain.chain[1:]  # On enlève le tout premier bloc ("Début de la traçabilité")
     return render_template('dashboard_personnel.html', username=current_user.username, products=products)
-
 
 # Tableau de bord pour le Client
 @app.route('/dashboard_client', methods=['GET', 'POST'])
