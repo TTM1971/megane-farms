@@ -24,6 +24,3 @@ class Block:
         while not self.hash.startswith(target):
             self.nonce += 1
             self.hash = self.calculate_hash()
-    def get_formatted_date(self):
-        from datetime import datetime
-        return datetime.fromtimestamp(self.timestamp).strftime("%d %B %Y à %Hh%M")

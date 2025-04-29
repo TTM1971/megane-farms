@@ -88,3 +88,20 @@ class Blockchain:
                 block.hash = block_data["hash"]
                 self.chain.append(block)
 
+class Block:
+    def __init__(self, index, product_id, event, location, previous_hash):
+        self.index = index
+        self.timestamp = datetime.now().timestamp()  # Timestamp au moment de la création
+        self.product_id = product_id
+        self.event = event
+        self.location = location
+        self.previous_hash = previous_hash
+        self.hash = self.calculate_hash()
+
+    def calculate_hash(self):
+        import hashlib
+        data = f"{self.index}{self.timestamp}{self.product_id}{self.event}{self.location}{self.previous_hash}"
+        return hashlib.sha256(data.encode()).hexdigest()
+
+    def get_formatted_date(self):
+        return datetime.fromtimestamp(self.timestamp).strftime("%d %B %Y à %Hh%M")

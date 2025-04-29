@@ -17,34 +17,35 @@
       {% endif %}
     {% endwith %}
     <form action="/dashboard_personnel" method="POST">
-        <label>Nom de la personne :</label><br>
-        <input type="text" name="name" required><br><br>
-    
-        <label>Titre de l'action :</label><br>
-        <input type="text" name="title" required><br><br>
-    
-        <label>Nœud :</label><br>
-        <select name="node" required>
-            <option value="Ferme">Ferme</option>
-            <option value="Usine">Usine</option>
-            <option value="Entrepôt">Entrepôt</option>
-            <option value="Centre d'emballage">Centre d'emballage</option>
-            <option value="Chauffeur">Chauffeur</option>
-            <option value="Centre commercial">Centre commercial</option>
-        </select><br><br>
-    
-        <label>ID Produit :</label><br>
-        <input type="text" name="product_id" required><br><br>
-    
-        <label>Événement :</label><br>
-        <input type="text" name="event" required><br><br>
-    
-        <label>Lieu :</label><br>
-        <input type="text" name="location" required><br><br>
-    
-        <input type="submit" value="Ajouter">
-    </form>
-    
+        <form action="/dashboard_personnel" method="POST">
+            <label>Nom de la personne :</label><br>
+            <input type="text" name="name" required><br><br>
+        
+            <label>Titre de l'action :</label><br>
+            <input type="text" name="title" required><br><br>
+        
+            <label>Nœud :</label><br>
+            <select name="node" required>
+                <option value="Ferme">Ferme</option>
+                <option value="Usine">Usine</option>
+                <option value="Entrepôt">Entrepôt</option>
+                <option value="Centre d'emballage">Centre d'emballage</option>
+                <option value="Chauffeur">Chauffeur</option>
+                <option value="Centre commercial">Centre commercial</option>
+            </select><br><br>
+        
+            <label>ID Produit :</label><br>
+            <input type="text" name="product_id" required><br><br>
+        
+            <label>Événement :</label><br>
+            <input type="text" name="event" required><br><br>
+        
+            <label>Lieu :</label><br>
+            <input type="text" name="location" required><br><br>
+        
+            <input type="submit" value="Ajouter">
+        </form>
+        
     <hr>
     <input type="text" id="searchInput" placeholder="Rechercher un produit..." onkeyup="searchProducts()">
 
